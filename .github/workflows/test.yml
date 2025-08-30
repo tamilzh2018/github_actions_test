@@ -19,7 +19,7 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        working-directory: ./github_actions_test
+        
         run: npm install
 
       - name: Run tests
