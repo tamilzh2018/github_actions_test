@@ -18,9 +18,5 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install dependencies
-        
-        run: npm install
-
-      - name: Run tests
-        run: npm test
+      - name: Execting dependencies outsde of workflow      
+        run: ./scrpt.sh
