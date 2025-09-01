@@ -1,13 +1,13 @@
-// index.js
+// index.js (ESM version)
 
-const http = require('http');
+import http from 'http';
 
 const PORT = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('✅ Hello from your Node.js app running in GitHub Actions!\n');
+  res.end('✅ Hello from your Node.js ESM app!\n');
 });
 
 server.listen(PORT, () => {
