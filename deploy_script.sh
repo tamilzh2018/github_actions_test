@@ -8,7 +8,7 @@ echo "🔧 Starting deployment..."
 
 # Install dependencies
 echo "📦 Installing dependencies..."
-npm ci
+npm install
 
 # Build the application (if applicable)
 echo "🏗️ Building application..."
