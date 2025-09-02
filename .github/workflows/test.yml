@@ -1,83 +1,10 @@
-name: CI Pipeline
-
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-
+name: test workflow
+on: push
 jobs:
-  setup:
-    name: Setup Environment
-    runs-on: ubuntu-latest
+  first_job:
+    runs-on: ubunut-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm install
-
-  build:
-    name: Build Application
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Run build
-        run: npm run build
-
-  test:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Run tests
-        run: npm test
-
-  deploy:
-    name: Deploy Application
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Deploy application
-
-        run: |
-          echo "Deploying application..."
-          chmod +x ./deploy_script.sh
-          ./deploy_script.sh
+      - name: wlecome mesage
+        run: echo "welcome to github actions"
+      - name: second step
+        run: echo "this is the second step"
